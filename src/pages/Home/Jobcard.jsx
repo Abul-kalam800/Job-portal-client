@@ -1,8 +1,11 @@
 import { div, span } from 'motion/react-client';
 import React from 'react';
+import { Link } from 'react-router';
 
 const Jobcard = ({job}) => {
-    console.log(job)
+    
+
+
     return (
         <div className='p-5 '>
             <div className='flex gap-4 items-center'>
@@ -17,14 +20,14 @@ const Jobcard = ({job}) => {
             <p className='my-5'>{job.category}</p>
             <p className='my-5'>{job.description}</p>
             <div className='my-5'>
-                {job.requirements.map(req=>
-                    <span className='ml-5'>{req}</span>
+                {job.requirements.map((req,index)=>
+                    <span key={index} className='ml-5'>{req}</span>
                 )}
             </div>
 
             <div className='flex justify-between'>
                 <button>{job.jobType}</button>
-                <button className='btn bg-blue-600 '>applay Now</button>
+                 <Link to={`/jobs/${job._id}`} className='btn btn-primary'>Job Detaisl</Link>
             </div>
         </div>
     );

@@ -1,9 +1,20 @@
 import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContex } from '../../provider/Authcontex';
 
 
 const Navbar = () => {
-
+  const {logOut,user}= use(AuthContex)
+ const handleLogout = ()=>{
+  logOut()
+  .then(()=>{
+    console.log('log out sucessfully')
+  })
+  .catch(error=>{
+    console.log(error)
+  })
+  
+ }
     return (
       <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
@@ -30,8 +41,12 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end gap-3">
-    <Link to='/signin' className='btn'>SignUp</Link>
+    {
+      user?<button onClick={handleLogout}>Logout</button>: <><Link to='/signin' className='btn'>SignUp</Link>
     <Link to='/register' className='btn'>Register</Link>
+  </>
+  }
+   
   
   </div>
 </div>

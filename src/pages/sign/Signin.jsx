@@ -1,9 +1,12 @@
 import React, { use } from "react";
 import { AuthContex } from "../../provider/Authcontex";
+import { useLocation, useNavigate } from "react-router";
 
 const Signin = () => {
     const {signinUser}= use(AuthContex)
-
+    const location = useLocation();
+    const navigation = useNavigate();
+    const from = location.state ||'/'
      const handleLogin =(e)=>{
         e.preventDefault();
         const form = e.target;
@@ -16,6 +19,7 @@ const Signin = () => {
         .then(result=>{
             console.log(result.user)
             alert('sign in successfull')
+            navigation(from)
         })
         .catch(error =>{
             console.log(error.message)
