@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
 
+
 const Navbar = () => {
+
     return (
       <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
