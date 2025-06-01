@@ -1,14 +1,13 @@
-import React from "react";
-
-const Signin = () => {
-  return (
-    
-   
-       
+ import React from 'react';
+ 
+ const Register = () => {
+    return (
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-10 mx-auto">
-            <h1  className="text-5xl font-semibold textl-center">Login now</h1>
+            <h1  className="text-5xl font-semibold textl-center">Register now</h1>
           <div className="card-body">
             <fieldset className="fieldset">
+              <label className="label">Name</label>
+              <input type="name" className="input" placeholder="Name" />
               <label className="label">Email</label>
               <input type="email" className="input" placeholder="Email" />
               <label className="label">Password</label>
@@ -20,9 +19,7 @@ const Signin = () => {
             </fieldset>
           </div>
         </div>
-      
-   
-  );
-};
-
-export default Signin;
+    );
+ };
+ 
+ export default Register;
