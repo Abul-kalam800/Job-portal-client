@@ -8,6 +8,8 @@ import PrivetRouter from "../privetRoute/PrivetRouter";
 import Applay from "../pages/Home/Applay";
 import Myapplication from "../pages/myapplication/Myapplication";
 import Addjobs from "../pages/addjobs/Addjobs";
+import Mypostjob from "../pages/mypostjob/Mypostjob";
+import ViewApplicatin from "../pages/mypostjob/ViewApplicatin";
 
 export const router = createBrowserRouter([
   {
@@ -23,9 +25,18 @@ export const router = createBrowserRouter([
          },
          {path:'/addjobs',
           element:<PrivetRouter><Addjobs></Addjobs></PrivetRouter>
-         }
-
-         ,
+         },
+         {
+          path:'/mypostjob',
+          element:<PrivetRouter><Mypostjob></Mypostjob></PrivetRouter>,
+         },
+         {
+          path:'/applications/:job_id',
+          element:<PrivetRouter><ViewApplicatin></ViewApplicatin></PrivetRouter>,
+          loader:({params})=>fetch(`http://localhost:3000/applications/job/${params.job_id}`)
+          
+         },
+         
          {
             path:'/signin',
             Component:Signin

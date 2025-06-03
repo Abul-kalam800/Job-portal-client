@@ -20,9 +20,9 @@ const Jobapplication = ({ app, index }) => {
         </div>
       </td>
       {title}
-      <td>{jobType}</td>
+      {/* <td>{jobType}</td> */}
       <th>
-        <button className="btn btn-ghost btn-xs">{status}</button>
+        {/* <button className="btn btn-ghost btn-xs">{status}</button> */}
       </th>
     </tr>
   );
